@@ -1,0 +1,2 @@
+# StartupAnimation
+对HackBGRT进行简体中文化处理，符合中国本土用户使用
