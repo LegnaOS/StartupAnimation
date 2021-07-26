@@ -2,7 +2,7 @@
 # 相同的选项设定也可以作为EFI Shell中的命令行参数直接使用，可以非常容易的调试并使用.
 
 # 引导加载程序路径。默认值：Windows引导加载程序的备份.
-boot=\EFI\StartupAnimation\bootmgfw-original.efi
+boot=\EFI\HackBGRT\bootmgfw-original.efi
 
 # 启动画面由【image】配置项指定.
 # 可能存在多个启动画面内容, 在此情况下会随机抽取一张启动画面作为展示.
@@ -20,17 +20,17 @@ boot=\EFI\StartupAnimation\bootmgfw-original.efi
 # 【image】配置项举例展示:
 #  - image=remove
 #  - image=black
-#  - image=x=auto,y=0,path=\EFI\StartupAnimation\StartupAnimationTopimage.bmp
-#  - image=n=1,path=\EFI\StartupAnimation\StartupAnimation.bmp
-#  - image=n=50,path=\EFI\StartupAnimation\StartupAnimationProbable.bmp
+#  - image=x=auto,y=0,path=\EFI\HackBGRT\splashtopimage.bmp
+#  - image=n=1,path=\EFI\HackBGRT\splash.bmp
+#  - image=n=50,path=\EFI\HackBGRT\splashprobable.bmp
 # 以上示例组合将会产生如下效果:
 #  - 1/54 概率使用默认启动LOGO
 #  - 1/54 概率修改为纯黑启动界面
-#  - 1/54 概率使用 StartupAnimationtopimage.bmp, 并在屏幕顶部居中显示
-#  - 1/54 概率使用 StartupAnimation.bmp, 自动根据图像定位显示位置
-#  - 50/54 概率使用 StartupAnimationProbable.bmp, 自动根据图像定位显示位置
+#  - 1/54 概率使用 splashTopimage.bmp, 并在屏幕顶部居中显示
+#  - 1/54 概率使用 splash.bmp, 自动根据图像定位显示位置
+#  - 50/54 概率使用 splashprobable.bmp, 自动根据图像定位显示位置
 # 默认值: 仅显示一张图片.
-image=path=\EFI\StartupAnimation\StartupAnimation.bmp
+image=path=\EFI\HackBGRT\splash.bmp
 
 # 首选分辨率. 使用【0x0】表示最大值，【-1x-1】表示原始值.
 resolution=0x0
