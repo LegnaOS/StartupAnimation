@@ -1,0 +1,40 @@
+﻿# vim: set fileencoding=utf-8
+# 相同的选项设定也可以作为EFI Shell中的命令行参数直接使用，可以非常容易的调试并使用.
+
+# 引导加载程序路径。默认值：Windows引导加载程序的备份.
+boot=\EFI\StartupAnimation\bootmgfw-original.efi
+
+# 启动画面由【image】配置项指定.
+# 可能存在多个启动画面内容, 在此情况下会随机抽取一张启动画面作为展示.
+# 【image】配置项可以包含以下配置内容:
+# 以下情况之一:
+#  - "n=[0-9]+", 在随机抽取过程中该图像的权重. 默认值: n=1.
+#  - "x={auto|native|[0-9]+}", X坐标. 默认值: x=auto.
+#  - "y={auto|native|[0-9]+}", Y坐标. 默认值: y=auto.
+# 以下情况之一:
+#  - "keep" 保持UEFI固件LOGO. 默认情况下坐标设置如: x=native,y=native.
+#  - "remove" 移除UEFI启动动画. X,Y坐标设置将无效.
+#  - "black" 使用纯黑填充LOGO. X,Y坐标设置将无效.
+#  - "path=..." 读取path路径设置的BMP文件. 文件必须是一个24位的BMP位图文件，带有54字节的文件头.
+#    * 重要提醒: 文件必须放置于EFI系统分区内，请不要给该分区添加驱动器号(盘符)!
+# 【image】配置项举例展示:
+#  - image=remove
+#  - image=black
+#  - image=x=auto,y=0,path=\EFI\StartupAnimation\StartupAnimationTopimage.bmp
+#  - image=n=1,path=\EFI\StartupAnimation\StartupAnimation.bmp
+#  - image=n=50,path=\EFI\StartupAnimation\StartupAnimationProbable.bmp
+# 以上示例组合将会产生如下效果:
+#  - 1/54 概率使用默认启动LOGO
+#  - 1/54 概率修改为纯黑启动界面
+#  - 1/54 概率使用 StartupAnimationtopimage.bmp, 并在屏幕顶部居中显示
+#  - 1/54 概率使用 StartupAnimation.bmp, 自动根据图像定位显示位置
+#  - 50/54 概率使用 StartupAnimationProbable.bmp, 自动根据图像定位显示位置
+# 默认值: 仅显示一张图片.
+image=path=\EFI\StartupAnimation\StartupAnimation.bmp
+
+# 首选分辨率. 使用【0x0】表示最大值，【-1x-1】表示原始值.
+resolution=0x0
+
+# Debug模式 (【0】 为禁用, 【1】 为开启).
+# 显示引导前的调试信息和提示信息.
+debug=0
